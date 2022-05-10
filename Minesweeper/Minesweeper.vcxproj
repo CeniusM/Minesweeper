@@ -139,11 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Minesweeper.cpp" />
+    <ClCompile Include="Int2d.cpp" />
+    <ClCompile Include="MinesweeperGame.cpp" />
+    <ClCompile Include="MyHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GUI.h" />
+    <ClInclude Include="Int2d.h" />
     <ClInclude Include="Minesweeper.h" />
+    <ClInclude Include="MinesweeperGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
