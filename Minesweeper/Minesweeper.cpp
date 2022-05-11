@@ -1,7 +1,21 @@
 #include "Minesweeper.h"
+#include "GameLogic.h"
 
 
 
+int Minesweeper::MakeMove(int x, int y)
+{
+	if (x < 0 || y < 0 || x > m_Count1 || y > m_Count2)
+		return 0;
+	if (firstMove)
+	{
+		GenerateBoard(m_board, 10, x, y);
+		firstMove = false;
+		return true;
+	}
+
+	return 1; // unless its allredy a take square
+}
 
 int** Minesweeper::GetBoard()
 {
@@ -25,6 +39,7 @@ int Minesweeper::GetSecondCount()
 
 Minesweeper::Minesweeper(int i, int j)
 {
+	firstMove = true;
 	m_state = 1;
 	m_Count1 = i;
 	m_Count2 = j;

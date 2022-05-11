@@ -2,6 +2,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <string>
 
 // My Helper is used for simplifying commen operations
 class MH
@@ -14,14 +15,14 @@ public:
 		std::cout << output << std::endl;
 	}
 
-	static void Write(char* output)
-	{
-		std::cout << output;
-	}
-
 	static void WriteLine(const char* output)
 	{
 		std::cout << output << std::endl;
+	}
+
+	static void Write(char* output)
+	{
+		std::cout << output;
 	}
 
 	static void Write(const char* output)
@@ -29,12 +30,15 @@ public:
 		std::cout << output;
 	}
 	
-	static char* ReadLine()
+	static std::string ReadLine()
 	{
-		return std::cin.get();	
+		std::string str;
+		std::getline(std::cin, str);
+		return str;
 	}
 
-	static void Clear() {
+	static void Clear()
+	{
 		std::cout << "\x1B[2J\x1B[H";
 	}
 

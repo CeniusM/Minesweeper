@@ -6,6 +6,7 @@ public:
 	Minesweeper(int i, int j);
 	~Minesweeper();
 
+	int MakeMove(int x, int y);
 	int** GetBoard();
 	int GetState();
 
@@ -13,6 +14,7 @@ public:
 	int GetSecondCount();
 
 private:
+	bool firstMove;
 	int m_state;
 	int** m_board;
 

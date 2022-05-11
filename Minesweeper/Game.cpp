@@ -10,7 +10,7 @@ void Game::MainLoop()
 	int foo = 10;
 
 	running = true;
-	Minesweeper MGame(20, 10);
+	Minesweeper MGame(20, 30);
 	GUI gui(MGame.GetFirstCount(), MGame.GetSecondCount(), MGame.GetBoard());
 	while (MGame.GetState() == 1 && running)
 	{
