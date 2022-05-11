@@ -28,6 +28,11 @@ public:
 	{
 		std::cout << output;
 	}
+	
+	static char* ReadLine()
+	{
+		return std::cin.get();	
+	}
 
 	static void Clear() {
 		std::cout << "\x1B[2J\x1B[H";
