@@ -1,9 +1,9 @@
 #pragma once
-class MinesweeperGame
+class Game
 {
 public:
-	MinesweeperGame();
-	~MinesweeperGame();
+	Game();
+	~Game();
 
 	void MainLoop();
 

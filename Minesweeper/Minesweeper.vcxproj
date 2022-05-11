@@ -143,7 +143,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Minesweeper.cpp" />
     <ClCompile Include="Int2d.cpp" />
-    <ClCompile Include="MinesweeperGame.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="MyHelper.cpp" />
   </ItemGroup>
   <ItemGroup>

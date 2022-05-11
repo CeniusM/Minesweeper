@@ -5,7 +5,7 @@
 
 int main()
 {
-	MinesweeperGame game;
+	Game game;
 	MH::WriteLine("welcome to my Minesweeper... enjoy <3");
 	MH::WriteLine("count down...");
 	for (int i = 3; i > 0; i--)

@@ -5,12 +5,12 @@
 
 #include <iostream>
 
-void MinesweeperGame::MainLoop()
+void Game::MainLoop()
 {
 	int foo = 10;
 
 	running = true;
-	Minesweeper MGame(20, 20);
+	Minesweeper MGame(20, 10);
 	GUI gui(MGame.GetFirstCount(), MGame.GetSecondCount(), MGame.GetBoard());
 	while (MGame.GetState() == 1 && running)
 	{
@@ -22,11 +22,11 @@ void MinesweeperGame::MainLoop()
 	}	
 }
 
-MinesweeperGame::MinesweeperGame()
+Game::Game()
 {
 	running = false;
 }
 
-MinesweeperGame::~MinesweeperGame()
+Game::~Game()
 {
 }
