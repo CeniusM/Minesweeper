@@ -1,9 +1,19 @@
+#include "Minesweeper.h"
+#include "GetMinesAround.h"
 
 
-void GenerateBoard(int** board, int bombAmout, int startX, int startY)
+
+void GenerateBoard(Minesweeper& MGame, int bombAmout, int startX, int startY)
 {
-		board[0][0] = 1;
-		board[4][6] = 1;
-		board[3][8] = 1;
-		board[2][3] = 1;
+	int** board = MGame.GetBoard();
+
+	for (int i = 0; i < MGame.GetFirstLength(); i++)
+	{
+		for (int j = 0; j < MGame.GetSecondLength(); j++)
+		{
+			
+		}
+	}
+
+	GetMinesAround(board, MGame.GetFirstLength(), MGame.GetSecondLength());
 }

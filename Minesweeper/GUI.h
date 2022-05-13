@@ -12,7 +12,6 @@ public:
 
 private:
 	char* m_line;
-	char* m_linePtr;
 	int** board;
 	int count1;
 	int count2;

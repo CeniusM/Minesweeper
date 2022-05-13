@@ -1,3 +1,3 @@
 #pragma once
 
-void GenerateBoard(int** board, int bombAmout, int startX, int startY);
+void GenerateBoard(Minesweeper& board, int bombAmout, int startX, int startY);

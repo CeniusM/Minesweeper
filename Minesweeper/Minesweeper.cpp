@@ -1,20 +1,25 @@
 #include "Minesweeper.h"
 #include "GameLogic.h"
 
-
-
 int Minesweeper::MakeMove(int x, int y)
 {
-	if (x < 0 || y < 0 || x > m_Count1 || y > m_Count2)
+	if (x < 0 || y < 0 || x > m_Length1 || y > m_Length2)
 		return 0;
 	if (firstMove)
 	{
-		GenerateBoard(m_board, 10, x, y);
+		GenerateBoard(*this, 10, x, y);
 		firstMove = false;
 		return true;
 	}
 
-	return 1; // unless its allredy a take square
+
+
+
+
+
+
+
+	return 1; // unless its allredy a taken square
 }
 
 int** Minesweeper::GetBoard()
@@ -27,22 +32,22 @@ int Minesweeper::GetState()
 	return m_state;
 }
 
-int Minesweeper::GetFirstCount()
+int Minesweeper::GetFirstLength()
 {
-	return m_Count1;
+	return m_Length1;
 }
 
-int Minesweeper::GetSecondCount()
+int Minesweeper::GetSecondLength()
 {
-	return m_Count2;
+	return m_Length2;
 }
 
 Minesweeper::Minesweeper(int i, int j)
 {
 	firstMove = true;
 	m_state = 1;
-	m_Count1 = i;
-	m_Count2 = j;
+	m_Length1 = i;
+	m_Length2 = j;
 	m_board = new int* [i];
 	for (int ii = 0; ii < i; ii++)
 	{
@@ -56,7 +61,7 @@ Minesweeper::Minesweeper(int i, int j)
 
 Minesweeper::~Minesweeper()
 {
-	for (int ii = 0; ii < m_Count1; ii++) {
+	for (int ii = 0; ii < m_Length1; ii++) {
 		delete[] m_board[ii];
 	}
 	delete[] m_board;

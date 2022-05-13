@@ -1,5 +1,6 @@
 #include "MinesweeperGame.h"
 #include "Minesweeper.h"
+#include "GameLogic.h"
 #include "MyHelper.cpp"
 #include "GUI.h";
 
@@ -7,11 +8,12 @@
 
 void Game::MainLoop()
 {
-	int foo = 10;
+	int foo = 100;
 
 	running = true;
 	Minesweeper MGame(20, 30);
-	GUI gui(MGame.GetFirstCount(), MGame.GetSecondCount(), MGame.GetBoard());
+	GUI gui(MGame.GetFirstLength(), MGame.GetSecondLength(), MGame.GetBoard());
+	GenerateBoard(MGame, 10, 1, 1);
 	while (MGame.GetState() == 1 && running)
 	{
 		MH::Clear();
