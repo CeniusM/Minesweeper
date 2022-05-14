@@ -7,15 +7,17 @@ int Minesweeper::MakeMove(int x, int y)
 		return 0;
 	if (firstMove)
 	{
-		GenerateBoard(*this, 10, x, y);
+		GenerateBoard(*this, m_Length1 * m_Length2 / 20, x, y);
 		firstMove = false;
+		m_board[x][y] ^= 0b1;
 		return true;
 	}
+	if ((m_board[x][y] & 0b1) == 1)
+		return 0;
 
 
-
-
-
+	MakeSeen(*this, x, y);
+	//m_board[x][y] |= 0b1;
 
 
 

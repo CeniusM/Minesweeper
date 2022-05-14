@@ -7,9 +7,11 @@
 
 int main()
 {
-	std::function<std::bind(&GetMinesAround)> a;
-	std::cout << MH::GetTimeOfAction("Time get mines", 1000000, 1);
-	MH::ThreadSleep(10000);
+	//int** board = new int*[1000];
+	//for (int i = 0; i < 1000; i++)
+	//	board[i] = new int[1000];
+	//std::cout << MH::GetTimeOfAction("Time get mines", 1000000, std::bind(&GetMinesAround, board, 1000, 1000));
+	//MH::ThreadSleep(10000);
 
 
 
@@ -33,7 +35,7 @@ int main()
 	MH::ThreadSleep(1000);
 
 
-	// ....
+	// .... tf
 	MH::gotoxy(0,0);
 	std::cout << "                                     " << std::endl;
 	std::cout << "             " << std::endl;

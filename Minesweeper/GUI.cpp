@@ -11,26 +11,30 @@ void GUI::PrintBoard()
 		{
 			piece = board[i][j];
 
+			m_linePtr = &m_line[j*3];
+
+			m_linePtr[0] = '[';
 			switch (piece & 0b111)
 			{
 			case 0b001: // seen, no bomb
 				if ((piece & 0b1111000) != 0) // puts in the number of bombs
-					m_line[j] = (char)((piece >> 3) + (char)'0');
+					m_linePtr[1] = (char)((piece >> 3) + (char)'0');
 				else
-					m_line[j] = ' ';
+					m_linePtr[1] = ' ';
 				break;
 			case 0b000: // unseen
-				m_line[j] = (char)219; // (char)219 = '█'
+				m_linePtr[1] = '?';//(char)219; // (char)219 = '█'
 				break;
 			case 0b100: // unseen flag
-				m_line[j] = 'P';
+				m_linePtr[1] = 'P';
 				break;
-			case 0b101: // seen, bomb
-				m_line[j] = 'X';
+			case 0b011: // seen, bomb
+				m_linePtr[1] = 'X';
 				break;
 			default:
 				break;
 			}
+			m_linePtr[2] = ']';
 		}
 		std::cout << m_line << std::endl;
 	}
@@ -40,10 +44,11 @@ GUI::GUI(int i, int j, int** board)
 {
 	count1 = i;
 	count2 = j;
-	m_line = new char[j + 1];
-	for (int ii = 0; ii < j; ii++)
+	m_line = new char[j * 3 + 1];
+	for (int ii = 0; ii < j * 3; ii++)
 		m_line[ii] = (char)0;
-	m_line[j] = NULL;
+	m_line[j * 3] = NULL;
+	m_linePtr = nullptr;
 	this->board = board;
 }
 

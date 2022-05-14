@@ -13,6 +13,11 @@ class MH
 public:
 
 	// console
+	static int GetKey()
+	{
+
+	}
+
 	static void WriteLine(char* output)
 	{
 		std::cout << output << std::endl;
@@ -41,7 +46,7 @@ public:
 	}
 
 	// dosent quiet work currecktly but ow well
-	static void Clear()
+	static void NewPage()
 	{
 		std::cout << "\x1B[2J\x1B[H";
 	}
@@ -59,7 +64,7 @@ public:
 	}
 
 	// time in milliseconds
-	static std::string GetTimeOfAction(std::string actionsSTR, int reps, std::function<void()> action)
+	static std::string GetTimeOfAction(std::string actionsSTR, int reps, std::function<void()>& action)
 	{
 		// warmup
 		action();

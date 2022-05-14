@@ -23,7 +23,6 @@ private:
 	// second lenght
 	int m_Length2;
 };
-
 /*
 
 m_board int piece,
