@@ -1,3 +1,5 @@
 #pragma once
 
-void GenerateBoard(int** board, int bombAmout, int startX, int startY);
+void GenerateBoard(Minesweeper& board, int mineAmout, int startX, int startY);
+
+void MakeSeen(Minesweeper& MGame, int x, int y);

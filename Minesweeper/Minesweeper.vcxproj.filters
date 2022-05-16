@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Game">
       <UniqueIdentifier>{15d9483a-3278-4a54-8f68-39c29cd4b345}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game\Minesweeper">
+      <UniqueIdentifier>{04ca1740-f2ea-453e-aa0e-bb563a97fec2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,11 +33,14 @@
     <ClCompile Include="GUI.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Minesweeper.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="GameLogic.cpp">
-      <Filter>Source Files\Game</Filter>
+      <Filter>Source Files\Game\Minesweeper</Filter>
+    </ClCompile>
+    <ClCompile Include="Minesweeper.cpp">
+      <Filter>Source Files\Game\Minesweeper</Filter>
+    </ClCompile>
+    <ClCompile Include="GetMinesAround.cpp">
+      <Filter>Source Files\Game\Minesweeper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameLogic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GetMinesAround.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
