@@ -1,5 +1,14 @@
 #pragma once
 
+struct PieceFlag
+{
+	static const int Seen =              0b1;
+	static const int Bomb =             0b01;
+	static const int flaged =          0b100;
+	static const int bombAmount =  0b1111000;
+	static const int isChecked =  0b10000000;
+};
+
 class Minesweeper
 {
 public:
@@ -33,5 +42,7 @@ m_board int piece,
 
 0b "1111" 000 = used to show how many bombs there is around
 
+is bomb allredy checked
+0b 1 0000 000
 */
 

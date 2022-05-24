@@ -17,7 +17,7 @@ void GUI::PrintBoard()
 			switch (piece & 0b111)
 			{
 			case 0b001: // seen, no bomb
-				if ((piece & 0b1111000) != 0) // puts in the number of bombs
+				if ((piece & PieceFlag::bombAmount) != 0) // puts in the number of bombs
 					m_linePtr[1] = (char)((piece >> 3) + (char)'0');
 				else
 					m_linePtr[1] = ' ';

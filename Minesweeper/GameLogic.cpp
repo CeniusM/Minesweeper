@@ -46,7 +46,9 @@ void MakeAroundSeen(Minesweeper& MGame, int x, int y, int depth) // need a redo
 	if (depth < 1)
 		return;
 	int** board = MGame.GetBoard();
-	if ((board[x][y] & 0b1111000) != 0)
+	if ((board[x][y] & PieceFlag::isChecked) == PieceFlag::isChecked)
+		return;
+	if ((board[x][y] & PieceFlag::Bomb) != 0)
 		return;
 	int xi = 0, yj = 0;
 	for (int i = -1; i < 2; i++)
@@ -58,9 +60,11 @@ void MakeAroundSeen(Minesweeper& MGame, int x, int y, int depth) // need a redo
 			if (xi < MGame.GetFirstLength() && yj < MGame.GetSecondLength() && xi > -1 && yj > -1)
 			{
 				board[xi][yj] |= 0b1;
-				if ((board[xi][yj] & 0b1111000) != 0)
+				if ((board[xi][yj] & PieceFlag::Bomb) != 0)
 					continue;
-				MakeAroundSeen(MGame, xi, yj, depth--);
+				depth--;
+				board[x][y] |= PieceFlag::isChecked;
+				MakeAroundSeen(MGame, xi, yj, depth);
 			}
 		}
 	}
