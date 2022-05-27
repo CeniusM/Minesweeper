@@ -11,9 +11,13 @@ public:
 	void PrintBoard();
 
 private:
-	char* m_line;
-	char* m_linePtr;
 	int** board;
 	int count1;
 	int count2;
+
+	wchar_t* screen;
+	HANDLE hConsole;
+	DWORD dwBytesWritten;
+	int nScreenWidth;
+	int nScreenHeight;
 };

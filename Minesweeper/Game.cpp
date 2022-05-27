@@ -34,11 +34,6 @@ void Game::MainLoop()
 
 		gui.PrintBoard();
 
-		MH::gotoxy(x, y);
-		std::cout << ">";
-		MH::gotoxy(x + 2, y);
-		std::cout << "<";
-
 		MH::ThreadSleep(100);
 	}	
 }
