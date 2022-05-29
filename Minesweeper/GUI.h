@@ -11,6 +11,8 @@ public:
 	void PrintBoard();
 
 private:
+	void SetConsoleSize(int x, int y, int charWidth, int charHeight);
+
 	int** board;
 	int count1;
 	int count2;
