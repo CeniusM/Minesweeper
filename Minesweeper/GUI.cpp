@@ -18,17 +18,40 @@ void GUI::SetConsoleSize(int x, int y, int charWidth, int charHeight)
 	HWND console = GetConsoleWindow();
 	RECT r;
 	GetWindowRect(console, &r); //stores the console's current dimensions
-	MoveWindow(console, r.left, r.top, x * charWidth + 40/*why i need +40, no clue*/, y * charHeight + 40, TRUE);
+	MoveWindow(console, r.left, r.top, x * charWidth, y * charHeight, TRUE);
 }
 
 void GUI::PrintBoard()
 {
 	// Generate Frame
+	int piece = 0;
+	for (int i = 0; i < count1; i++)
+	{
+		for (int j = 0; j < count2; j++)
+		{
+			piece = board[i][j];
+			if ((piece & PieceFlag::Seen) == 0)
+			{
+				screen[i * count2 + j] = 0x2588;
+				if ((piece & PieceFlag::Flaged) == 0)
+					screen2d[i][j] = 0x2588;
+				else
+					screen2d[i][j] = 'P';
+			}
+			else
+			{	
+				if ((piece & PieceFlag::Bomb) == PieceFlag::Bomb)
+					screen2d[i][j] = 'X';
+				else if ((piece & PieceFlag::bombAmount) != 0)
+					screen2d[i][j] = (char)((piece & PieceFlag::bombAmount) - (int)'0');
 
+			}
+		}
+	}
 
 	// Display Frame
 	screen[nScreenWidth * nScreenHeight - 1] = '\0';
-	WriteConsoleOutputCharacter(hConsole, screen, nScreenWidth * nScreenHeight * 3, { 0,0 }, &dwBytesWritten);
+	WriteConsoleOutputCharacter(hConsole, screen, nScreenWidth * nScreenHeight, { 0,0 }, &dwBytesWritten);
 }
 
 GUI::GUI(int x, int y, int** board)
@@ -37,9 +60,11 @@ GUI::GUI(int x, int y, int** board)
 	nScreenHeight = y;
 
 	// Create Screen Buffer
-	screen = new wchar_t[nScreenWidth * nScreenHeight]; 
+	screen = new wchar_t[nScreenWidth * nScreenHeight];
+	screen2d = new wchar_t* [nScreenHeight];
 	for (int i = 0; i < nScreenHeight; i++)
 	{
+		screen2d[i] = &screen[i * nScreenWidth];
 		for (int j = 0; j < nScreenWidth; j++)
 		{
 			screen[i * nScreenWidth + j] = ' ';
@@ -60,4 +85,5 @@ GUI::GUI(int x, int y, int** board)
 GUI::~GUI()
 {
 	delete[] screen;
+	delete[] screen2d; // do i need to remove any more?
 }

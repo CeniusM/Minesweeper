@@ -18,6 +18,7 @@ private:
 	int count2;
 
 	wchar_t* screen;
+	wchar_t** screen2d;
 	HANDLE hConsole;
 	DWORD dwBytesWritten;
 	int nScreenWidth;

@@ -17,6 +17,8 @@ void Game::MainLoop()
 	GUI gui(MGame.GetFirstLength(), MGame.GetSecondLength(), MGame.GetBoard());
 	while (MGame.GetState() == 1 && running)
 	{
+		auto start = std::chrono::high_resolution_clock::now();
+
 		if (GetKeyState('A') & 0x8000)
 			if (x > 0)
 				x -= 3;
@@ -34,7 +36,12 @@ void Game::MainLoop()
 
 		gui.PrintBoard();
 
-		MH::ThreadSleep(100);
+		// timer / game speed, 100 times a second
+		auto finish = std::chrono::high_resolution_clock::now();
+		auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>(finish - start);
+		long long mDelay = 10000 - microseconds.count();
+		if (mDelay > 0)
+			std::this_thread::sleep_for(std::chrono::microseconds(mDelay));
 	}	
 }
 
